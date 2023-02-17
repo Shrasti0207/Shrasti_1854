@@ -37,26 +37,23 @@ int main()
     // N represent number of elements in the array
     int N;
     cin>>N;
-    int newArr[N], arr[N];
+    int copyArr[N], arr[N];
     
     for(int i=0; i<N; i++){
         cin>>arr[i];
-         newArr[i] = arr[i];
+         copyArr[i] = arr[i];
     }
        
-    quickSort(newArr, 0, N-1);
+    quickSort(copyArr, 0, N-1);
     
     int i;
     // Map to store the rank of the array element
-    
     map<int, int> ranks;
- 
     int rank_pointer = 1;
- 
     for(int index = 0; index < N; index++)
     {
  
-        int element = newArr[index];
+        int element = copyArr[index];
         // Update rank of element
         if (ranks[element] == 0)
         {
@@ -64,7 +61,6 @@ int main()
             rank_pointer++;
         }
     }
- 
     for(int index = 0; index < N; index++)
     {
         int element = arr[index];
